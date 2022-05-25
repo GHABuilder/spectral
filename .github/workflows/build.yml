@@ -23,16 +23,19 @@ jobs:
       run: |
         git clone https://gitlab.matrix.org/matrix-org/olm.git
         cd olm
+        mkdir build
         cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DBUILD_SHARED_LIBS=NO
         cmake --build build --target install
         cd ..
         git clone https://github.com/frankosterfeld/qtkeychain.git
         cd qtkeychain
+        mkdir build
         cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DQTKEYCHAIN_STATIC=ON
         cmake --build build --target install
         cd ..
         git clone https://github.com/commonmark/cmark.git
         cd cmark
+        mkdir build
         cmake -LA -G "NMake Makefiles JOM" -H. -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX="install" -DCMARK_SHARED=ON -DCMARK_STATIC=OFF -DCMARK_TESTS=OFF
         cmake --build build --target install
         cd ..
