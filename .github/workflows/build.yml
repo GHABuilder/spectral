@@ -39,6 +39,7 @@ jobs:
         cd ..
     - name: Build
       working-directory: ./spectral
+      shell: cmd
       run: |
         cmake  -LA -G "NMake Makefiles" . -Bbuild -DCMAKE_CXX_FLAGS="/EHsc /W3" -DBUILD_SHARED_LIBS=OFF -DCMAKE_BUILD_TYPE=RelWithDebInfo -DCMAKE_INSTALL_PREFIX="install" -DUSE_INTREE_LIBQMC=1 -DQt5Keychain_DIR="qtkeychain/install/lib/cmake/Qt5Keychain" -DOlm_DIR=olm/install/lib/cmake/Olm -DCMARK_LIBRARY=%cd%\cmark\install\lib\cmark.lib -DCMARK_INCLUDE_DIR=%cd%\cmark\install\include -DDEPLOY_VERBOSITY=%DEPLOY_VERBOSITY%
         cmake --build build
