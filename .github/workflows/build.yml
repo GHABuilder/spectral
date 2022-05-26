@@ -8,6 +8,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - uses: ilammy/msvc-dev-cmd@v1
     - name: Install Qt
       uses: jurplel/install-qt-action@v2
       with:
